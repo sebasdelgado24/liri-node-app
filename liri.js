@@ -1,21 +1,16 @@
-//requiring the hidden file where I am storing the keys
+
 require("dotenv").config();
 
-//variable where we are storing the processes to export our keys
 var keys = require("./keys.js");
 
-//variable that requires 
 var Spotify = require('node-spotify-api');
-
-//const axios = require("axios");
 
 var spotify = new Spotify(keys.spotify);
 
 
-var getArtistNames = function(artist) {
-    return artist.name;
-
-}
+//var getArtistNames = function(artist) {
+    //return artist.name;
+//}
 
 var getMeSpotify = function(songName) {
 
@@ -25,7 +20,7 @@ var getMeSpotify = function(songName) {
         console.log('Error occurred: ' + err);
         return;
     }
-    //console.log(data.tracks.items[0]);
+    console.log(data.tracks.items[0]);
      
     var songs = data.tracks.items;
     for(var i=0; i<songs.lenght; i++) {
@@ -37,7 +32,6 @@ var getMeSpotify = function(songName) {
       console.log('-----------------------------------------------------');
     }
   });
-  
 }
  
 var pick = function(caseData, functionData) {
